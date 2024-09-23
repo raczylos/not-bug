@@ -1,0 +1,40 @@
+<div>
+	<ul>
+		<li *ngFor="let car of cars">
+			<a [routerLink]="['/car', car.id]">{{car.model}}</a>
+		</li>
+	</ul>
+
+	<form [formGroup]="carForm" (ngSubmit)="onCarSubmit()">
+		<h3>Car</h3>
+		<div>
+			<label for="brand">Marka:</label>
+			<input id="brand" formControlName="brand">
+		</div>
+		<div>
+			<label for="model">Model:</label>
+			<input id="model" formControlName="model">
+		</div>
+		<div>
+			<label for="year">Rok:</label>
+			<input id="year" formControlName="year">
+		</div>
+
+		<h3>Car details</h3>
+		<div formGroupName="details">
+			<div>
+				<label for="part">Part:</label>
+				<input id="part" formControlName="part">
+			</div>
+			<div>
+				<label for="cost">Cost:</label>
+				<input id="cost" formControlName="cost">
+			</div>
+		</div>
+
+		<button type="submit">Create car</button>
+	</form>
+
+</div>
+
+

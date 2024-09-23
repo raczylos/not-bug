@@ -1,0 +1,29 @@
+<!-- fix it isnt centered properly -->
+<div class="card">
+	<mat-card  class="pokemon-card" appearance="outlined">
+		<div *ngIf="!isLoading">
+			<mat-card-title-group>
+				<mat-card-title>{{pokemon?.name}}</mat-card-title>
+				<img mat-card-sm-image
+					src="{{pokemon?.sprites.front_default}}"
+					alt="{{pokemon?.name}}"
+					(load)="onImageLoad()"
+					[hidden]="isImageLoading">
+				<img mat-card-sm-image
+					src="{{pokemon?.sprites.back_default}}"
+					alt="{{pokemon?.name}}"
+					(load)="onImageLoad()"
+					[hidden]="isImageLoading">
+			</mat-card-title-group>
+
+			<mat-card-content>
+				<p>Height: {{pokemon?.height}}</p>
+				<p>Weight: {{pokemon?.weight}}</p>
+				<p>Base Experience: {{pokemon?.base_experience}}</p>
+			</mat-card-content>
+		</div>
+		<mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+	</mat-card>
+
+
+</div>
